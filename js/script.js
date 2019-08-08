@@ -3,9 +3,8 @@ $(document).ready(function(){
 
   // create code for input working
 
-
   $.ajax({
-    url:'config.json',
+    url:'config.json', //API key
     type: 'GET',
     dataType: 'json',
     success: function(keys){
@@ -16,6 +15,7 @@ $(document).ready(function(){
       console.log('cannot find config.json file, cannot run application');
     }
   });
+
 
   getWeatherData = () => {
     $.ajax({
@@ -32,7 +32,12 @@ $(document).ready(function(){
   }
 
   getLocation = () => {
-
+    $.ajax({
+      url:`https://maps.googleapis.com/maps/api/place/autocomplete/output?parameters`,
+      type: 'GET',
+      dataType:'json',
+      success: function()
+    })
   }
 
 
